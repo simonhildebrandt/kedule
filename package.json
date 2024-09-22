@@ -1,20 +1,25 @@
 {
-  "name": "my-webapp-starter",
+  "name": "kedule",
   "version": "1.0.0",
-  "description": "Basic Browserify/Babel/React stack",
+  "description": "A simple calendar scraper",
   "main": "index.js",
   "author": "Simon Hildebrandt <simonhildebrandt@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "serve": "live-server --port=9000 --entry-file=index.html dev/",
+    "serve": "web-dev-server -p 9000 -r dev --app-index dev/index.html --open --watch",
+    "emulator": "firebase emulators:start --export-on-exit=./firebase_data --import=./firebase_data",
     "build": "yarn esbuild src/index.jsx --bundle --outfile=dev/index.js",
     "watch": "yarn esbuild src/index.jsx --bundle --outfile=dev/index.js --watch",
-    "build_prod": "yarn esbuild src/index.jsx --bundle --outfile=public/index.js"
+    "build_prod": "yarn esbuild src/index.jsx --bundle --outfile=public/index.js",
+    "deploy": "yarn run firebase deploy --only functions,storage"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "@web/dev-server": "^0.4.6",
     "esbuild": "^0.14.18",
-    "live-server": "1.2.1",
+    "firebase": "^10.13.2",
+    "firebase-tools": "^13.18.0",
+    "navigo": "^8.11.1",
     "react": "^18",
     "react-dom": "^18"
   }
