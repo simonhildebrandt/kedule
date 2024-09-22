@@ -1,0 +1,21 @@
+{
+  "name": "my-webapp-starter",
+  "version": "1.0.0",
+  "description": "Basic Browserify/Babel/React stack",
+  "main": "index.js",
+  "author": "Simon Hildebrandt <simonhildebrandt@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "serve": "live-server --port=9000 --entry-file=index.html dev/",
+    "build": "yarn esbuild src/index.jsx --bundle --outfile=dev/index.js",
+    "watch": "yarn esbuild src/index.jsx --bundle --outfile=dev/index.js --watch",
+    "build_prod": "yarn esbuild src/index.jsx --bundle --outfile=public/index.js"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "esbuild": "^0.14.18",
+    "live-server": "1.2.1",
+    "react": "^18",
+    "react-dom": "^18"
+  }
+}
